@@ -1,5 +1,6 @@
 {
     "name": "servergrove/kb-bundle",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ismael Ambrosi",
