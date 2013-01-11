@@ -1,0 +1,15 @@
+{% extends "ServerGroveKbBundle:Default:layout.html.twig" %}
+
+{% block title %}{{ article.getTitle() }} - {{ category.getName() }} - {{ parent() }}{% endblock title %}
+
+{% block metas %}
+    {{ parent() }}
+    <meta name="keywords" content="{{ article.getKeywords()|join(',') }}"/>
+{% endblock metas %}
+
+{% block content %}
+    {% spaceless %}
+        {% set showComments = showComments is defined ? showComments : true %}
+        {% render "ServerGroveKbBundle:Articles:articleContent" with { 'article': article, 'category': category, 'showComments': showComments } %}
+    {% endspaceless %}
+{% endblock %}
