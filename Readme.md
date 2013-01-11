@@ -9,8 +9,7 @@ This bundle allows to easily create a knowledge base application with a few simp
 You need to add the bundle to your composer file. You can easily do so by running the following command:
 
 ```bash
-# temporarily until we find the proper name for the bundle
-$ composer require servergrove/kb-bundle:dev-master 
+$ composer require servergrove/kb-bundle:dev-master
 ```
 
 
@@ -25,7 +24,7 @@ There is only one requirement, to add the Bundle instance to your Kernel
 public function registerBundles() {
     return array(
         // …
-        new ServerGrove\KnowledgeBaseBundle\SGKnowledgeBaseBundle(),
+        new ServerGrove\KbBundle\ServerGroveKbBundle(),
         // ...
     );
 }
