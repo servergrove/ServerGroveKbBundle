@@ -213,8 +213,8 @@ class UsersController extends Controller
     }
 
     /**
-     * @param \ServerGrove\KbBundle\Document\User $user
-     * @param string                              $password
+     * @param User   $user
+     * @param string $password
      *
      * @return string
      */

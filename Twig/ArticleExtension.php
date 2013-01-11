@@ -14,7 +14,7 @@ use Symfony\Component\Locale\Locale;
 class ArticleExtension extends \Twig_Extension
 {
     /**
-     * @var \Doctrine\ODM\PHPCR\DocumentManager
+     * @var DocumentManager
      */
     private $manager;
 
@@ -29,9 +29,9 @@ class ArticleExtension extends \Twig_Extension
     private $twig;
 
     /**
-     * @param \Doctrine\ODM\PHPCR\DocumentManager $manager
-     * @param array                               $locales
-     * @param string                              $template
+     * @param DocumentManager $manager
+     * @param array           $locales
+     * @param string          $template
      */
     public function __construct(DocumentManager $manager, array $locales, $template)
     {
@@ -61,8 +61,8 @@ class ArticleExtension extends \Twig_Extension
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Article $article
-     * @param  string                                 $locale
+     * @param  Article $article
+     * @param  string  $locale
      * @return string
      */
     public function renderArticleLocale(Article $article, $locale)
@@ -86,7 +86,7 @@ class ArticleExtension extends \Twig_Extension
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Article $article
+     * @param  Article $article
      * @return string
      */
     public function renderArticleLocales(Article $article)
@@ -95,7 +95,7 @@ class ArticleExtension extends \Twig_Extension
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Article $article
+     * @param  Article $article
      * @return mixed
      */
     public function hasLocaleActive(Article $article)
@@ -125,7 +125,7 @@ class ArticleExtension extends \Twig_Extension
     /**
      * Returns the value of manager
      *
-     * @return \Doctrine\ODM\PHPCR\DocumentManager
+     * @return DocumentManager
      */
     private function getManager()
     {

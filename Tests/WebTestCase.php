@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Client;
 class WebTestCase extends BaseTestCase
 {
     /**
-     * @var \Symfony\Bundle\FrameworkBundle\Client
+     * @var Client
      */
     private $client;
 
@@ -26,7 +26,7 @@ class WebTestCase extends BaseTestCase
     private $application;
 
     /**
-     * @return \Symfony\Bundle\FrameworkBundle\Client
+     * @return Client
      */
     protected function getClient()
     {
@@ -81,19 +81,17 @@ class WebTestCase extends BaseTestCase
      */
     private function setupSchemas()
     {
-        $input = $this->getInputDefinition(array('--fixtures' => __DIR__.'/../DataFixtures/PHPCR'));
-        $input->setInteractive(false);
-
+        $path = __DIR__.'/..';
         $this
             ->getApplication()
             ->find('doctrine:phpcr:fixtures:load')
-            ->run($input, new NullOutput());
+            ->run($this->getInputDefinition(array('--fixtures' => $path.'/DataFixtures/PHPCR')), new NullOutput());
     }
 
     /**
      * @param array $def
      *
-     * @return \Symfony\Component\Console\Input\ArrayInput
+     * @return ArrayInput
      */
     private function getInputDefinition(array $def = array())
     {
@@ -101,7 +99,7 @@ class WebTestCase extends BaseTestCase
     }
 
     /**
-     * @return \Symfony\Bundle\FrameworkBundle\Console\Application
+     * @return Application
      */
     private function getApplication()
     {

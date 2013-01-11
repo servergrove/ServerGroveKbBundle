@@ -84,7 +84,7 @@ class User implements AdvancedUserInterface
     private $expirationDate;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Article")
      */
     private $subscriptions;
@@ -265,7 +265,7 @@ class User implements AdvancedUserInterface
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getSubscriptions()
     {

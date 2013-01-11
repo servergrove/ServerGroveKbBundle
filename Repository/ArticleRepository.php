@@ -31,7 +31,7 @@ class ArticleRepository extends DocumentRepository implements RepositoryIdInterf
      */
     public function search($search, Category $category = null)
     {
-        /** @var $articles \Doctrine\Common\Collections\ArrayCollection */
+        /** @var $articles ArrayCollection */
         if (is_null($category)) {
             $articles = $this->findAll();
         } else {
@@ -51,14 +51,14 @@ class ArticleRepository extends DocumentRepository implements RepositoryIdInterf
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Category      $category
-     * @param  \Doctrine\Common\Collections\ArrayCollection $articles
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @param  Category        $category
+     * @param  ArrayCollection $articles
+     * @return ArrayCollection
      */
     public function getArticlesFromCategoryHierarchy(Category $category, ArrayCollection $articles)
     {
         if (is_null($articles)) {
-            $articles = new \Doctrine\Common\Collections\ArrayCollection();
+            $articles = new ArrayCollection();
         }
 
         foreach ($category->getArticles() as $article) {
@@ -75,8 +75,8 @@ class ArticleRepository extends DocumentRepository implements RepositoryIdInterf
     /**
      * Generate a document id
      *
-     * @param \ServerGrove\KbBundle\Document\Article $document
-     * @param object                                 $parent
+     * @param Article $document
+     * @param object  $parent
      *
      * @return string
      */

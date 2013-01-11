@@ -44,3 +44,7 @@ li.flag-disabled {
     opacity:0.3;
     filter:alpha(opacity=30); /* For IE8 and earlier */;
 }
+
+div.input-append-inline {
+    display: inline;
+}

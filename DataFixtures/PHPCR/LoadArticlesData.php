@@ -19,7 +19,7 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
     /**
      * Load data fixtures with the passed EntityManager
      *
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     * @param ObjectManager $manager
      *
      * @return void
      */
@@ -76,7 +76,7 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
         $url = null,
         array $metadata = array()
     ) {
-        $article = new \ServerGrove\KbBundle\Document\Article();
+        $article = new Article();
         $article
             ->setTitle($title)
             ->setContent($content)->setContentType('markdown')
@@ -87,7 +87,7 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
         }
 
         foreach ($categories as $category) {
-                $article->addCategory($category);
+            $article->addCategory($category);
         }
 
         foreach ($keywords as $keyword) {

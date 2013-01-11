@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
  */
 class UserProvider implements UserProviderInterface
 {
-    /** @var \Doctrine\Common\Persistence\ObjectManager */
+    /** @var ObjectManager */
     private $manager;
 
     public function __construct(ObjectManager $manager)

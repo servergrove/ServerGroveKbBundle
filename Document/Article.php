@@ -30,6 +30,7 @@ class Article
     /**
      * @var string
      * @PHPCRODM\String
+     * @Assert\NotBlank()
      */
     private $slug;
 
@@ -41,7 +42,7 @@ class Article
     private $isActive = false;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Category", strategy="hard")
      */
     private $categories;
@@ -101,13 +102,13 @@ class Article
     private $metadata;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="User")
      */
     private $subscriptors;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Url")
      */
     private $urls;
@@ -161,8 +162,24 @@ class Article
         $this->title = $title;
 
         if (is_null($this->slug)) {
-            $this->setSlug(Sluggable::urlize($title));
+            $this->createSlug($title);
         }
+
+        return $this;
+    }
+
+    /**
+     * @param null $title
+     *
+     * @return Article
+     */
+    public function createSlug($title = null)
+    {
+        if (is_null($title)) {
+            $title = $this->getTitle();
+        }
+
+        $this->setSlug(Sluggable::urlize($title));
 
         return $this;
     }
@@ -276,7 +293,7 @@ class Article
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getCategories()
     {
@@ -340,7 +357,7 @@ class Article
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getSubscriptors()
     {
@@ -432,7 +449,7 @@ class Article
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getUrls()
     {

@@ -76,13 +76,13 @@ class Category
 
     /**
      * @PHPCRODM\Children()
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      */
     private $children;
 
     /**
      * @PHPCRODM\Referrers(referenceType="hard")
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var ArrayCollection
      */
     private $articles;
 
@@ -318,7 +318,7 @@ class Category
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getChildren()
     {
@@ -350,8 +350,8 @@ class Category
     }
 
     /**
-     * @param  bool                                         $sorted
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @param  bool            $sorted
+     * @return ArrayCollection
      */
     public function getArticles($sorted = false)
     {

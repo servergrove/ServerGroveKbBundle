@@ -35,8 +35,9 @@ class CategoriesController extends Controller
     /**
      * @Template
      *
-     * @param  \ServerGrove\KbBundle\Document\Category $category
-     * @param  \ServerGrove\KbBundle\Document\Category $topCategory
+     * @param Category $category
+     * @param Category $topCategory
+     *
      * @return array
      */
     public function selectorAction(Category $category = null, Category $topCategory = null)
@@ -53,7 +54,7 @@ class CategoriesController extends Controller
 
         $filteredCategories = new ArrayCollection();
 
-        /** @var $category \ServerGrove\KbBundle\Document\Category */
+        /** @var $category Category */
         foreach ($categories as $subcategory) {
             if ($this->shouldCategoryBeDisplayed($subcategory)) {
                 $filteredCategories->add($subcategory);
@@ -64,7 +65,8 @@ class CategoriesController extends Controller
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Category    $category
+     * @param Category $category
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function subcategorySelectorAction(Category $category)
@@ -110,14 +112,14 @@ class CategoriesController extends Controller
     }
 
     /**
-     * @param \ServerGrove\KbBundle\Document\Category $category
+     * @param Category $category
      *
      * @return bool
      */
     private function shouldCategoryBeDisplayed(Category $category)
     {
         if (0 < $category->getArticles()->count()) {
-            /** @var $article \ServerGrove\KbBundle\Document\Article */
+            /** @var $article Article */
             foreach ($category->getArticles() as $article) {
                 // If the category has at least one article active,
                 // it should be displayed
@@ -126,7 +128,7 @@ class CategoriesController extends Controller
                 }
             }
         } elseif (0 < $category->getChildren()->count()) {
-            /** @var $child \ServerGrove\KbBundle\Document\Category */
+            /** @var $child Category */
             foreach ($category->getChildren() as $child) {
                 if ($this->shouldCategoryBeDisplayed($child)) {
                     return true;

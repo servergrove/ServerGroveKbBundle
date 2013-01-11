@@ -28,7 +28,7 @@ class CategoriesLoader implements EntityLoaderInterface
      */
     public function getEntities()
     {
-        /** @var $categories \Doctrine\Common\Collections\ArrayCollection */
+        /** @var $categories ArrayCollection */
         $parents    = $this->manager->getRepository('ServerGroveKbBundle:Category')->findAllParents();
         $categories = new ArrayCollection();
 
@@ -60,9 +60,9 @@ class CategoriesLoader implements EntityLoaderInterface
     }
 
     /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $categories
-     * @param \ServerGrove\KbBundle\Document\Category      $category
-     * @param int                                          $spaces
+     * @param ArrayCollection $categories
+     * @param Category        $category
+     * @param int             $spaces
      */
     public function addCategoryToArrayCollection(ArrayCollection $categories, Category $category, $spaces = 0)
     {

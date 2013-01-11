@@ -146,6 +146,20 @@
         return controller;
     };
 
+    this.urlEditorCtrl = function ($scope) {
+        $scope.initialSlug = '';
+        $scope.displayUrlEditor = false;
+
+        $scope.showUrlEditor = function () {
+            $scope.displayUrlEditor = true;
+        };
+
+        $scope.hideUrlEditor = function () {
+            $scope.slug = $scope.initialSlug;
+            $scope.displayUrlEditor = false;
+        };
+    };
+
     this.getTranslationController = function (content, contentType, locale) {
 
         var textArea = $('textarea#translation_' + locale + '_content').hide(),
@@ -370,6 +384,7 @@
     this.ImageGalleryCtrl.$inject = ['$scope', '$http', 'galleryModal'];
     this.getActiveWidgetController.$inject = [];
     this.getContentTypeWidgetController.$inject = [];
+    this.urlEditorCtrl.$inject = ['$scope'];
     this.getTranslationController.$inject = [];
     this.NewArticleCtrl.$inject = ['$scope', '$http'];
 }.call(window, window.angular, window.jQuery, window.marked, window.CodeMirror));

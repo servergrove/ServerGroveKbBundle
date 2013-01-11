@@ -10,7 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class SearchArticleType extends AbstractType
 {
     /**
-     * @var \ServerGrove\KbBundle\Repository\CategoryRepository
+     * @var CategoryRepository
      */
     private $repository;
 

@@ -12,11 +12,11 @@ use Symfony\Component\Translation\TranslatorInterface;
 class TextExtension extends \Twig_Extension
 {
 
-    /** @var \Symfony\Component\Translation\TranslatorInterface */
+    /** @var TranslatorInterface */
     private $translator;
 
     /**
-     * @param \Symfony\Component\Translation\TranslatorInterface $translator
+     * @param TranslatorInterface $translator
      */
     public function __construct(TranslatorInterface $translator)
     {

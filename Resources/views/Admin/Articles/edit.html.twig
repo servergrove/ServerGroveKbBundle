@@ -34,6 +34,20 @@
                 {{ form_widget(edit_form.categories, { 'attr': { 'class': 'input-xxlarge', 'size': 11 } }) }}
             </div>
         </div>
+        <div class="span6" ng-controller="urlEditorCtrl" style="margin-bottom: 7px;">
+            {{ form_label(edit_form.slug) }}
+            {% set slug_input -%}
+            {% spaceless %}
+                <a ng-hide="displayUrlEditor" ng-click="showUrlEditor()" href="javascript:void(0)" ng-init="initialSlug = '{{ edit_form.slug.get('value') }}'">{{ edit_form.slug.get('value') }}</a>
+                <div ng-show="displayUrlEditor" class="input-append input-append-inline">
+                    {{ form_widget(edit_form.slug, {'attr': {'class': 'input-medium', 'ng-model': 'slug', 'ng-init': 'slug = initialSlug'}} ) }}
+                    <button type="button" class="btn btn-danger" ng-click="hideUrlEditor()">&times;</button>
+                </div>
+            {% endspaceless %}
+            {%- endset %}
+            {{ url('sgkb_articles_view', {'path': document.getDefaultCategory().getPath(), 'slug': '__replace__'})|replace({'__replace__': slug_input})|raw }}
+            {{ form_errors(edit_form.slug) }}
+        </div>
         <div class="span6">
             {% if edit_form.urls is defined %}
             <div>

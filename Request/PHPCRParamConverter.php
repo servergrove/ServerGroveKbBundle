@@ -17,12 +17,12 @@ class PHPCRParamConverter implements ParamConverterInterface
 {
 
     /**
-     * @var \Doctrine\ODM\PHPCR\DocumentManager
+     * @var DocumentManager
      */
     private $manager;
 
     /**
-     * @param \Doctrine\ODM\PHPCR\DocumentManager $manager
+     * @param DocumentManager $manager
      */
     public function __construct(DocumentManager $manager)
     {
@@ -30,8 +30,8 @@ class PHPCRParamConverter implements ParamConverterInterface
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request                                $request
-     * @param \Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface $configuration
+     * @param Request                $request
+     * @param ConfigurationInterface $configuration
      *
      * @return bool
      */
@@ -53,7 +53,7 @@ class PHPCRParamConverter implements ParamConverterInterface
     }
 
     /**
-     * @param \Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface $configuration
+     * @param ConfigurationInterface $configuration
      *
      * @return bool
      */

@@ -25,7 +25,7 @@ class ControllerTestCase extends WebTestCase
     }
 
     /**
-     * @param \Symfony\Bundle\FrameworkBundle\Client $client
+     * @param Client $client
      *
      * @return string
      */

@@ -62,8 +62,8 @@ class ArticlesController extends Controller
     /**
      * @Template
      *
-     * @param  \ServerGrove\KbBundle\Document\Article  $article
-     * @param  \ServerGrove\KbBundle\Document\Category $category
+     * @param  Article  $article
+     * @param  Category $category
      * @return array
      */
     public function articleContentAction(Article $article, Category $category = null, $showComments = true)
@@ -107,7 +107,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param \ServerGrove\KbBundle\Document\Article $article
+     * @param Article $article
      */
     private function registerView(Article $article)
     {
@@ -133,8 +133,8 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param  \ServerGrove\KbBundle\Document\Article $article
-     * @param  array                                  $locales
+     * @param  Article $article
+     * @param  array   $locales
      * @return array
      */
     private function getActiveLocales(Article $article, array $locales)

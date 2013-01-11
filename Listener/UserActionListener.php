@@ -15,7 +15,7 @@ class UserActionListener
 {
 
     /**
-     * @var \Symfony\Component\DependencyInjection\ContainerInterface
+     * @var ContainerInterface
      */
     private $container;
 

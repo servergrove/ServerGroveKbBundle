@@ -2,13 +2,14 @@
 
 namespace ServerGrove\KbBundle\Controller\Admin;
 
+use ServerGrove\KbBundle\Util\Sluggable;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use ServerGrove\KbBundle\Document\Article;
 use ServerGrove\KbBundle\Document\Category;
-use ServerGrove\KbBundle\Form\ArticleType;
+use ServerGrove\KbBundle\Form\ArticleEditType;
 use ServerGrove\KbBundle\Form\ArticleNewType;
 use ServerGrove\KbBundle\Form\ArticleTranslationType;
 use Symfony\Component\HttpFoundation\Response;
@@ -128,18 +129,21 @@ class ArticlesController extends Controller
      * @Template()
      * @ParamConverter("article", class="ServerGroveKbBundle:Article")
      */
-    public function editAction(Article $article, array $forms = array())
+    public function editAction(Article $article, $editForm = null, array $forms = array())
     {
         $original = clone $article;
         $dm       = $this->getDocumentManager();
-        $editForm = $this->createForm(
-            new ArticleType(),
-            $original,
-            array(
-                'enable_related_urls' => $this->areRelatedUrlsEnabled(),
-                'loader'              => new \ServerGrove\KbBundle\Form\ChoiceList\CategoriesLoader($dm)
-            )
-        );
+
+        if (is_null($editForm)) {
+            $editForm = $this->createForm(
+                new ArticleEditType(),
+                $original,
+                array(
+                     'enable_related_urls' => $this->areRelatedUrlsEnabled(),
+                     'loader'              => new \ServerGrove\KbBundle\Form\ChoiceList\CategoriesLoader($dm)
+                )
+            );
+        }
 
         $locales = $this->get('service_container')->getParameter('server_grove_kb.locales');
 
@@ -166,7 +170,8 @@ class ArticlesController extends Controller
             'document'          => $original,
             'edit_form'         => $editForm->createView(),
             'delete_form'       => $this->createDeleteForm($article)->createView(),
-            'translation_forms' => $translationForms
+            'translation_forms' => $translationForms,
+            'default_locale'    => $this->get('doctrine_phpcr.odm.locale_chooser')->getDefaultLocale()
         );
     }
 
@@ -180,7 +185,7 @@ class ArticlesController extends Controller
     public function updateAction(Article $article)
     {
         $editForm = $this->createForm(
-            new ArticleType(),
+            new ArticleEditType(),
             $article,
             array('enable_related_urls' => $this->areRelatedUrlsEnabled())
         );
@@ -232,7 +237,7 @@ class ArticlesController extends Controller
 
         return $this->render(
             'ServerGroveKbBundle:Admin/Articles:edit.html.twig',
-            $this->editAction($dm->refresh($article), $translationForms),
+            $this->editAction($dm->refresh($article), $editForm, $translationForms),
             new Response('', 400)
         );
     }
@@ -264,9 +269,9 @@ class ArticlesController extends Controller
      * @Route("/{slug}/keywords/sync.{_format}", name="sgkb_admin_articles_keywords_sync", requirements={"_format"="json"})
      * @Method("post")
      *
-     * @param \ServerGrove\KbBundle\Document\Article $article
+     * @param Article $article
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function syncKeywords(Article $article)
     {
@@ -295,9 +300,9 @@ class ArticlesController extends Controller
      * @Route("/check-article.{_format}", name="sgkb_admin_articles_check", requirements={"_format"="json"})
      * @Method("post")
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
+     * @throws HttpException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function checkArticleAction()
     {
@@ -318,7 +323,7 @@ class ArticlesController extends Controller
         $result  = true;
 
         $article = $this->getArticleRepository()->findOneBySlug(
-            \ServerGrove\KbBundle\Util\Sluggable::urlize($request->request->get('title'))
+            Sluggable::urlize($request->request->get('title'))
         );
         if ($article) {
             $message = $translator->trans('The article already exists');

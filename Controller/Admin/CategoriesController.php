@@ -52,7 +52,7 @@ class CategoriesController extends Controller
      * @Template
      * @ParamConverter("parent", class="ServerGroveKbBundle:Category")
      *
-     * @param \ServerGrove\KbBundle\Document\Category $parent
+     * @param Category $parent
      *
      * @return array
      */
@@ -78,7 +78,7 @@ class CategoriesController extends Controller
      * @Method("post")
      * @ParamConverter("parent", class="ServerGroveKbBundle:Category")
      *
-     * @param \ServerGrove\KbBundle\Document\Category $parent
+     * @param Category $parent
      *
      * @return array
      */
@@ -130,8 +130,8 @@ class CategoriesController extends Controller
      * @Template()
      * @ParamConverter("category", class="ServerGroveKbBundle:Category")
      *
-     * @param \ServerGrove\KbBundle\Document\Category $category
-     * @param array                                   $forms
+     * @param Category $category
+     * @param array    $forms
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @return array
@@ -262,7 +262,7 @@ class CategoriesController extends Controller
 
     /**
      * @Route("/{path}/articles/new", name="sgkb_admin_categories_new_article", requirements={"path":".+"})
-     * @param  \ServerGrove\KbBundle\Document\Category $category
+     * @param  Category $category
      * @return Response
      */
     public function newArticleAction(Category $category)

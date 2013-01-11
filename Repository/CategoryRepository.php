@@ -24,9 +24,9 @@ class CategoryRepository extends DocumentRepository
     public function findAllParentsActive($displayPrivate = true)
     {
         $parents    = $this->findAllParents($displayPrivate);
-        $collection = new \Doctrine\Common\Collections\ArrayCollection();
+        $collection = new ArrayCollection();
 
-        /** @var $parent \ServerGrove\KbBundle\Document\Category */
+        /** @var $parent Category */
         foreach ($parents as $parent) {
             $collection->add($parent);
         }
@@ -40,7 +40,7 @@ class CategoryRepository extends DocumentRepository
      */
     public function findAllParents($displayPrivate = true)
     {
-        /** @var $all \Doctrine\Common\Collections\ArrayCollection */
+        /** @var $all ArrayCollection */
         $all = new ArrayCollection();
 
         /** @var $categories ArrayCollection */

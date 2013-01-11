@@ -18,7 +18,7 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface
     /**
      * Load data fixtures with the passed EntityManager
      *
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
     {
@@ -35,14 +35,14 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * @param string                                     $name
-     * @param string                                     $username
-     * @param string                                     $password
-     * @param string                                     $email
-     * @param array                                      $roles
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     * @param string        $name
+     * @param string        $username
+     * @param string        $password
+     * @param string        $email
+     * @param array         $roles
+     * @param ObjectManager $manager
      *
-     * @return \ServerGrove\KbBundle\Document\User
+     * @return User
      */
     private function createUser($name, $username, $password, $email, array $roles, ObjectManager $manager)
     {

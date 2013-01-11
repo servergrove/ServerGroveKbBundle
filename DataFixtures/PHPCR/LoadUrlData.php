@@ -18,7 +18,7 @@ class LoadUrlData implements FixtureInterface, OrderedFixtureInterface
     /**
      * Load data fixtures with the passed EntityManager
      *
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     * @param ObjectManager $manager
      *
      * @return void
      */
@@ -34,11 +34,11 @@ class LoadUrlData implements FixtureInterface, OrderedFixtureInterface
     }
 
     /**
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
-     * @param string                                     $name
-     * @param string                                     $url
+     * @param ObjectManager $manager
+     * @param string        $name
+     * @param string        $url
      *
-     * @return \ServerGrove\KbBundle\Document\Url
+     * @return Url
      */
     private function addUrl(ObjectManager $manager, $name, $url)
     {

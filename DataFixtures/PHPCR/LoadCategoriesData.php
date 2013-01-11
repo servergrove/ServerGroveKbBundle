@@ -17,7 +17,7 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
     /**
      * Load data fixtures with the passed EntityManager
      *
-     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
     {
@@ -44,12 +44,12 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
     }
 
     /**
-     * @param  \Doctrine\Common\Persistence\ObjectManager                                   $manager
-     * @param  string                                                                       $name
-     * @param  string                                                                       $description
-     * @param  \ServerGrove\KbBundle\Document\Category|\Doctrine\ODM\PHPCR\Document\Generic $parent
-     * @param  bool                                                                         $private
-     * @return \ServerGrove\KbBundle\Document\Category
+     * @param  ObjectManager                                 $manager
+     * @param  string                                        $name
+     * @param  string                                        $description
+     * @param  Category|\Doctrine\ODM\PHPCR\Document\Generic $parent
+     * @param  bool                                          $private
+     * @return Category
      */
     private function addCategory(ObjectManager $manager, $name, $description, $parent, $private = false)
     {
