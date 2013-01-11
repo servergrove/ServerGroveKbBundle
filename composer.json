@@ -1,0 +1,27 @@
+{
+    "name": "servergrove/knowledgebase-bundle",
+    "authors": [
+        {
+            "name": "Ismael Ambrosi",
+            "email": "ismaambrosi@gmail.com"
+        },
+        {
+            "name": "Pablo Godel",
+            "email": "pgodel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.0,<2.3-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "ServerGrove\\KbBundle": ""
+        }
+    },
+    "target-dir": "ServerGrove/KbBundle",
+    "require-dev": {
+        "symfony/finder": ">=2.0,<2.3-dev"
+    }
+}
