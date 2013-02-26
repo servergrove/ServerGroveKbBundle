@@ -433,7 +433,7 @@ class Article
      */
     public function getKeywords()
     {
-        return $this->keywords;
+        return new ArrayCollection($this->keywords);
     }
 
     /**
