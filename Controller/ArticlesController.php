@@ -86,7 +86,7 @@ class ArticlesController extends Controller
             );
         }
 
-        $article = $this->getDocumentManager()->refresh($article);
+        $this->getDocumentManager()->refresh($article);
         $this->checkLocale($article);
 
         $articles = $category->getArticles();
