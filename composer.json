@@ -1,5 +1,5 @@
 {
-    "name": "servergrove/kb-bundle",
+    "name": "raulfraile/kb-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -9,6 +9,10 @@
         {
             "name": "Pablo Godel",
             "email": "pgodel@gmail.com"
+        },
+        {
+            "name": "Raul Fraile",
+            "email": "raulfraile@gmail.com"
         }
     ],
     "minimum-stability": "dev",
