@@ -44,8 +44,8 @@ class CategoryRepository extends DocumentRepository
         $all = new ArrayCollection();
 
         /** @var $categories ArrayCollection */
-        $categories = $this
-            ->getDocumentByStringQuery($this->getParentsQueryString())
+        $categories = $this->createQuery($this->getParentsQueryString(), QueryInterface::JCR_SQL2)
+            ->getResult()
             ->filter($this->getFilterClosure($displayPrivate));
 
         $array = $categories->toArray();
