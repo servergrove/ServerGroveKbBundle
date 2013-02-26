@@ -84,6 +84,7 @@ class CategoryRepository extends DocumentRepository
 
     private function getDocumentByStringQuery($string)
     {
-        return $this->getDocumentsByQuery($this->createQuery($string, QueryInterface::JCR_SQL2));
+        return $this->dm->getDocumentsByQuery($this->createQuery($string, QueryInterface::JCR_SQL2));
     }
+
 }
