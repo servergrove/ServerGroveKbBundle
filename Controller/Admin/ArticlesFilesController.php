@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class ArticlesFilesController
  *
- * @Route("/admin/{_locale}/articles/files", requirements={"_locale"="en|es|pt"})
+ * @Route("/admin/{_locale}/articles/files")
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
  */

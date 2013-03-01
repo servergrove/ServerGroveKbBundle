@@ -12,7 +12,7 @@ use ServerGrove\KbBundle\Document\Category;
 /**
  * Class CategoriesController
  *
- * @Route("/{_locale}/categories", requirements={"_locale"="en|es|pt"})
+ * @Route("/{_locale}/categories")
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
  */

@@ -12,7 +12,7 @@ use Symfony\Component\Locale\Locale;
 /**
  * Class ArticlesController
  *
- * @Route("/{_locale}/categories/{path}/articles", requirements={"_locale"="en|es|pt", "path"=".+"})
+ * @Route("/{_locale}/categories/{path}/articles", requirements={"path"=".+"})
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
  */
