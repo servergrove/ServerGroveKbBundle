@@ -22,8 +22,8 @@ class ArticlesController extends Controller
     /**
      *
      * @Route("/{slug}.{_format}", name="sgkb_articles_view", defaults={"_format"="html"}, requirements={"_format"="html|json|xml"})
-     * @ParamConverter("category", class="ServerGroveKbBundle:Category")
-     * @ParamConverter("article", class="ServerGroveKbBundle:Article")
+     * @ParamConverter("category", class="ServerGroveKbBundle:Category", options={"exclude" = {"slug"}})
+     * @ParamConverter("article", class="ServerGroveKbBundle:Article", options={"id" = "slug"})
      * @Template
      *
      * @param Article  $article

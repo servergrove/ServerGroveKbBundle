@@ -85,7 +85,7 @@ class CategoriesController extends Controller
      *  requirements={"_format"="html|json|xml|rss","path":".+"}
      * )
      * @Template
-     * @ParamConverter("category", class="ServerGroveKbBundle:Category")
+     * @ParamConverter("category", converter="doctrine.phpcr", class="ServerGroveKbBundle:Category", options={"id" = "path2"})
      *
      * @param Category $category
      *
