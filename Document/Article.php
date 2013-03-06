@@ -25,105 +25,105 @@ class Article
      * @var string
      * @PHPCRODM\Id(strategy="repository")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      * @PHPCRODM\String
      * @Assert\NotBlank()
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @var boolean
      * @PHPCRODM\Boolean(translated=true)
      * @Assert\Type(type="bool")
      */
-    private $isActive = false;
+    protected $isActive = false;
 
     /**
      * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Category", strategy="hard")
      */
-    private $categories;
+    protected $categories;
 
     /**
      * @var string
      * @PHPCRODM\Locale
      */
-    private $locale;
+    protected $locale;
 
     /**
      * @var string
      * @PHPCRODM\String(translated=true)
      * @Assert\NotBlank()
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      * @PHPCRODM\String(translated=true)
      */
-    private $content;
+    protected $content;
 
     /**
      * @var string
      * @PHPCRODM\String(translated=true)
      */
-    private $contentType;
+    protected $contentType;
 
     /**
      * @var string
      * @PHPCRODM\VersionName
      */
-    private $versionName;
+    protected $versionName;
 
     /**
      * @PHPCRODM\VersionCreated
      */
-    private $versionCreated;
+    protected $versionCreated;
 
     /**
      * @var int
      * @PHPCRODM\Int
      */
-    private $views;
+    protected $views;
 
     /**
      * @var array
      * @PHPCRODM\String(multivalue=true)
      */
-    private $keywords;
+    protected $keywords;
 
     /**
      * @var array
      * @PHPCRODM\String(multivalue=true)
      */
-    private $metadata;
+    protected $metadata;
 
     /**
      * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="User")
      */
-    private $subscriptors;
+    protected $subscriptors;
 
     /**
      * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Url")
      */
-    private $urls;
+    protected $urls;
 
     /**
      * @PHPCRODM\Date
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @PHPCRODM\Date
      * @var \DateTime
      */
-    private $updated;
+    protected $updated;
 
     public function __construct()
     {
