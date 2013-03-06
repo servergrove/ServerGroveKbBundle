@@ -53,6 +53,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('disqus_shortname')
+                ->end()
+            ->end();
+
+        $rootNode
+            ->children()
                 ->scalarNode('editor_type')
                 ->cannotBeEmpty()
                 ->defaultValue('markdown')

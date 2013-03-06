@@ -32,6 +32,7 @@ class ServerGroveKbExtension extends Extension
         $container->setParameter('server_grove_kb.article.top_keyword', $config['article']['top_keyword']);
         $container->setParameter('server_grove_kb.locales', $config['locales']);
         $container->setParameter('server_grove_kb.default_locale', $config['default_locale']);
+        $container->setParameter('server_grove_kb.disqus_shortname', $config['disqus_shortname']);
         $container->setParameter('server_grove_kb.editor_type', $config['editor_type']);
         $container->setParameter('server_grove_kb.mailer.from.name', $config['mailer']['from']['name']);
         $container->setParameter('server_grove_kb.mailer.from.email', $config['mailer']['from']['email']);
