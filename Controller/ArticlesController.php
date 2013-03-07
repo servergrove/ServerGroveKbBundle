@@ -44,7 +44,8 @@ class ArticlesController extends Controller
         return array(
             'category'     => $category,
             'article'      => $article,
-            'showComments' => $showComments
+            'showComments' => $showComments,
+            'disqus_shortname'    => $this->container->getParameter('server_grove_kb.disqus_shortname')
         );
     }
 
@@ -102,7 +103,8 @@ class ArticlesController extends Controller
             'previousArticle'     => $articles->get($index - 1),
             'nextArticle'         => $articles->get($index + 1),
             'enable_related_urls' => $container->getParameter('server_grove_kb.article.enable_related_urls'),
-            'showComments'        => $showComments
+            'showComments'        => $showComments,
+            'disqus_shortname'    => $this->container->getParameter('server_grove_kb.disqus_shortname')
         );
     }
 
