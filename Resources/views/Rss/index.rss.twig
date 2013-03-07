@@ -1,0 +1,13 @@
+{% extends "ServerGroveKbBundle:Default:layout.rss.twig" %}
+
+{% block items %}
+    {% for article in articles %}
+    <item>
+        <title>{{ article.title }}</title>
+        <description>{{ article.description|truncate(100) }}</description>
+        <link>http://www.wikipedia.org/</link>
+        <guid>unique string per item</guid>
+        <pubDate>Mon, 06 Sep 2009 16:45:00 +0000 </pubDate>
+    </item>
+    {% endfor %}
+{% endblock %}

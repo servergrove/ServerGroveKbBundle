@@ -30,6 +30,11 @@ ServerGroveKbBundle_Categories:
     resource: "@ServerGroveKbBundle/Controller/CategoriesController.php"
     type:     annotation
 
+ServerGroveKbBundle_Rss:
+    resource: "@ServerGroveKbBundle/Controller/RssController.php"
+    type:     annotation
+
+
 ServerGroveKbBundle_Default:
     resource: "@ServerGroveKbBundle/Controller/DefaultController.php"
     type:     annotation
