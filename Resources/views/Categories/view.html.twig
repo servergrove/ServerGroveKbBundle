@@ -7,7 +7,6 @@
     <link rel="alternate" type="application/rss+xml" title="Categories list" href="{{ path('sgkb_categories_view', { 'path': category.path, _format: "rss" }) }}"/>
 {% endblock %}
 
-
 {% macro articleLink(article, category) %}
     {% if article %}
         <li>
