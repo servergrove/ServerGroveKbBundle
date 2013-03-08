@@ -20,9 +20,7 @@ class RssController extends Controller
 {
 
     /**
-     *
      * @Route("/", name="sgkb_rss_index", defaults={"_format"="rss"})
-     * @Template
      *
      * @return array
      */
@@ -30,8 +28,8 @@ class RssController extends Controller
     {
         $articles = $this->getArticleRepository()->findAll();
 
-        return array(
+        return $this->render('ServerGroveKbBundle:Rss:index.rss.twig', array(
             'articles' => $articles
-        );
+        ));
     }
 }
