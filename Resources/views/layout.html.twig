@@ -6,10 +6,14 @@
     {% block javascripts %}
     {% spaceless %}
     {% javascripts
-                "@ServerGroveKbBundle/Resources/public/js/*.js"
-                "@ServerGroveKbBundle/Resources/public/js/frontend/*.js"
-                "@ServerGroveKbBundle/Resources/public/js/google-code-prettify/*.js"
-                filter="?yui_js" output="/js/compiled/frontend.js" %}
+        "@ServerGroveKbBundle/Resources/public/js/0.jquery-1.7.2.min.js"
+        "@ServerGroveKbBundle/Resources/public/js/1.angular-1.0.1.min.js"
+        "@ServerGroveKbBundle/Resources/public/js/2.bootstrap-2.0.4.min.js"
+        "@ServerGroveKbBundle/Resources/public/js/3.prettify.js"
+        "@ServerGroveKbBundle/Resources/public/js/jquery.ez-pinned-footer.js"
+        "@ServerGroveKbBundle/Resources/public/js/frontend/frontend.js"
+        "@ServerGroveKbBundle/Resources/public/js/google-code-prettify/*.js"
+        filter="?yui_js" output="/js/compiled/frontend.js" %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     {% endspaceless %}
