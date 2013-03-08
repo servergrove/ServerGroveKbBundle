@@ -12,6 +12,7 @@
         <parameter key="server_grove_kb.form.type.category.class">ServerGrove\KbBundle\Form\Type\CategoryType</parameter>
         <parameter key="server_grove_kb.form.type.prepended_date.class">ServerGrove\KbBundle\Form\Type\Prepended\DateType</parameter>
         <parameter key="server_grove_kb.listener.user.action.class">ServerGrove\KbBundle\Listener\UserActionListener</parameter>
+        <parameter key="server_grove_kb.listener.locale.class">ServerGrove\KbBundle\Listener\LocaleListener</parameter>
         <parameter key="server_grove_kb.twig.extension.text.class">ServerGrove\KbBundle\Twig\TextExtension</parameter>
         <parameter key="server_grove_kb.twig.extension.article.class">ServerGrove\KbBundle\Twig\ArticleExtension</parameter>
         <parameter key="server_grove_kb.request.phpcr_param_converter.class">ServerGrove\KbBundle\Request\PHPCRParamConverter</parameter>
@@ -53,6 +54,11 @@
             <argument>%server_grove_kb.mailer.from.name%</argument>
             <argument>%server_grove_kb.mailer.from.email%</argument>
             <tag name="doctrine.odm.mongodb.default_event_listener" event="postUpdate"/>
+        </service>
+
+        <service id="server_grove_kb.listener.locale" class="%server_grove_kb.listener.locale.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="10" />
+            <argument type="service" id="service_container" />
         </service>
 
         <service id="server_grove_kb.twig.extension.text" class="%server_grove_kb.twig.extension.text.class%">

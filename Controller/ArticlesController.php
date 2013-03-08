@@ -12,7 +12,7 @@ use Symfony\Component\Locale\Locale;
 /**
  * Class ArticlesController
  *
- * @Route("/{_locale}/categories/{path}/articles", requirements={"_locale"="en|es|pt", "path"=".+"})
+ * @Route("/{_locale}/categories/{path}/articles", requirements={"path"=".+"})
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
  */
@@ -22,8 +22,8 @@ class ArticlesController extends Controller
     /**
      *
      * @Route("/{slug}.{_format}", name="sgkb_articles_view", defaults={"_format"="html"}, requirements={"_format"="html|json|xml"})
-     * @ParamConverter("category", class="ServerGroveKbBundle:Category")
-     * @ParamConverter("article", class="ServerGroveKbBundle:Article")
+     * @ParamConverter("category", class="ServerGroveKbBundle:Category", options={"exclude" = {"slug"}})
+     * @ParamConverter("article", class="ServerGroveKbBundle:Article", options={"id" = "slug"})
      * @Template
      *
      * @param Article  $article
@@ -44,7 +44,8 @@ class ArticlesController extends Controller
         return array(
             'category'     => $category,
             'article'      => $article,
-            'showComments' => $showComments
+            'showComments' => $showComments,
+            'disqus_shortname'    => $this->container->getParameter('server_grove_kb.general.disqus_shortname')
         );
     }
 
@@ -86,7 +87,7 @@ class ArticlesController extends Controller
             );
         }
 
-        $article = $this->getDocumentManager()->refresh($article);
+        $this->getDocumentManager()->refresh($article);
         $this->checkLocale($article);
 
         $articles = $category->getArticles();
@@ -102,7 +103,8 @@ class ArticlesController extends Controller
             'previousArticle'     => $articles->get($index - 1),
             'nextArticle'         => $articles->get($index + 1),
             'enable_related_urls' => $container->getParameter('server_grove_kb.article.enable_related_urls'),
-            'showComments'        => $showComments
+            'showComments'        => $showComments,
+            'disqus_shortname'    => $this->container->getParameter('server_grove_kb.general.disqus_shortname')
         );
     }
 

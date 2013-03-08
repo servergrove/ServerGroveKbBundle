@@ -1,0 +1,19 @@
+{% extends "ServerGroveKbBundle::layout.rss.twig" %}
+
+{% block items %}
+{% for article in articles %}
+<item>
+    <title><![CDATA[{{ article.title }}]]></title>
+    <description><![CDATA[
+        {% if article.getContentType() == 'markdown' %}
+        {{ article.getContent()|markdown }}
+        {% else %}
+        {{ article.getContent()|raw }}
+        {% endif %}
+        ]]></description>
+    <link>{{ url('sgkb_articles_view', { 'slug': article.slug, 'path': article.defaultCategory.path, '_format': 'html' }) }}</link>
+    <guid>{{ article.id }}</guid>
+    <pubDate>{{ article.created|date('D, d M Y H:i:s') }}</pubDate>
+</item>
+{% endfor %}
+{% endblock %}

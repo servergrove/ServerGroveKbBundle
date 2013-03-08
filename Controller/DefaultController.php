@@ -12,7 +12,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/", name="sgkb_index")
-     * @Route("/{_locale}", name="sgkb_index_locale", requirements={"_locale"="en|es|pt"})
+     * @Route("/{_locale}", name="sgkb_index_locale")
      * @return array
      */
     public function indexAction()

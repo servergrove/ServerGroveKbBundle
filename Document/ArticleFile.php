@@ -22,13 +22,13 @@ class ArticleFile
      * @var string
      * @PHPCRODM\Id(strategy="repository")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      * @PHPCRODM\String
      */
-    private $path;
+    protected $path;
 
     /**
      * @return string

@@ -21,34 +21,34 @@ class User implements AdvancedUserInterface
      * @var string
      * @PHPCRODM\Id(strategy="repository")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      * @PHPCRODM\String
      * @Assert\NotBlank()
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      * @PHPCRODM\String
      * @Assert\NotBlank
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      * @PHPCRODM\String
      * @Assert\NotBlank
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      * @PHPCRODM\String
      */
-    private $salt;
+    protected $salt;
 
     /**
      * @var string
@@ -56,38 +56,38 @@ class User implements AdvancedUserInterface
      * @Assert\NotBlank
      * @Assert\Email
      */
-    private $email;
+    protected $email;
 
     /**
      * @var \Doctrine\ODM\PHPCR\MultivaluePropertyCollection
      * @PHPCRODM\String(multivalue=true)
      */
-    private $roles;
+    protected $roles;
 
     /**
      * @var bool
      * @PHPCRODM\Boolean
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var bool
      * @PHPCRODM\Boolean
      */
-    private $locked;
+    protected $locked;
 
     /**
      * @var \DateTime
      * @PHPCRODM\Date
      * @Assert\Date
      */
-    private $expirationDate;
+    protected $expirationDate;
 
     /**
      * @var ArrayCollection
      * @PHPCRODM\ReferenceMany(targetDocument="Article")
      */
-    private $subscriptions;
+    protected $subscriptions;
 
     /**
      * Constructor

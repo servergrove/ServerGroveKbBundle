@@ -4,7 +4,7 @@
     <channel>
         <title>{% block title %}{% endblock %}</title>
         <description>{% block description %}{% endblock %}</description>
-        <lastBuildDate>{% block lastBuildDate %}{% endblock %}</lastBuildDate>
+        <lastBuildDate>{{ "now"|date('D, d M Y H:i:s') }}}</lastBuildDate>
         {% block items %}
         {% endblock %}
     </channel>

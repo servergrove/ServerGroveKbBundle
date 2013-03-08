@@ -17,14 +17,14 @@ class Url
      * @var string
      * @PHPCRODM\Id(strategy="repository")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      * @PHPCRODM\String(translated=true)
      * @Assert\NotBlank()
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
@@ -32,25 +32,25 @@ class Url
      * @Assert\NotBlank()
      * @Assert\Url()
      */
-    private $url;
+    protected $url;
 
     /**
      * @var string
      * @PHPCRODM\String
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @var string
      * @PHPCRODM\Locale
      */
-    private $locale;
+    protected $locale;
 
     /**
      * @var \DateTime
      * @PHPCRODM\Date
      */
-    private $created_at;
+    protected $created_at;
 
     /**
      * Get id
