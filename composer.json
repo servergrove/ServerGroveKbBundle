@@ -9,12 +9,24 @@
         {
             "name": "Pablo Godel",
             "email": "pgodel@gmail.com"
+        },
+        {
+            "name": "Raul Fraile",
+            "email": "raulfraile@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": ">=2.0,<2.3-dev"
+        "symfony/framework-bundle": ">=2.0,<2.3-dev",
+        "codemirror/codemirror": "v2.33",
+        "chjj/marked": "v0.2.5",
+        "doctrine/phpcr-bundle": "dev-master",
+        "doctrine/phpcr-odm": "1.0.x-dev",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "servergrove/translation-editor-bundle": "dev-master",
+        "jackalope/jackalope-jackrabbit": "dev-master",
+        "knplabs/knp-markdown-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": {

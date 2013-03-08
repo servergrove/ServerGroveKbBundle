@@ -15,7 +15,7 @@ use ServerGrove\KbBundle\Form\CategorySettingsType;
 /**
  * Class CategoriesAdminController
  *
- * @Route("/admin/{_locale}/categories", requirements={"_locale"="en|es|pt"})
+ * @Route("/admin/{_locale}/categories")
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
  */

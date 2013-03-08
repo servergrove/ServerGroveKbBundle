@@ -36,13 +36,11 @@
 </div>
 {% endif %}
 
-{% if showComments is defined and showComments %}
+{% if showComments is defined and showComments and disqus_shortname is not empty %}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'shortname'; // required: replace example with your forum shortname
+    var disqus_shortname = "{{ disqus_shortname }}";
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

@@ -99,7 +99,7 @@ class PHPCRParamConverter implements ParamConverterInterface
                 $criteria[$field] = $request->attributes->get($attribute);
             }
         }
-
+//ld($class, $criteria, $options, $metadata);
         if (!$criteria) {
             return false;
         }

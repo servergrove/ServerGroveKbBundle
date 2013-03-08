@@ -24,75 +24,75 @@ class Category
      * @PHPCRODM\Id
      * @var string
      */
-    private $id;
+    protected $id;
 
     /**
      * @PHPCRODM\ParentDocument
      */
-    private $parent = null;
+    protected $parent = null;
 
     /**
      * @PHPCRODM\Nodename
      * @var string
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @PHPCRODM\String
      * @var string
      */
-    private $path;
+    protected $path;
 
     /**
      * @PHPCRODM\Locale
      * @var string
      */
-    private $locale;
+    protected $locale;
 
     /**
      * @PHPCRODM\String(translated=true)
      * @Assert\NotBlank()
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @PHPCRODM\String(translated=true)
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @PHPCRODM\Date
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @PHPCRODM\Date
      * @var \DateTime
      */
-    private $updated;
+    protected $updated;
 
     /**
      * @PHPCRODM\Children()
      * @var ArrayCollection
      */
-    private $children;
+    protected $children;
 
     /**
-     * @PHPCRODM\Referrers(referenceType="hard")
+     * @PHPCRODM\MixedReferrers(referenceType="hard")
      * @var ArrayCollection
      */
-    private $articles;
+    protected $articles;
 
     /**
      * @PHPCRODM\String
      * @var string
      */
-    private $visibility;
+    protected $visibility;
 
-    private $displayName;
+    protected $displayName;
 
     /**
      *

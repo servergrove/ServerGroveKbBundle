@@ -45,9 +45,26 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('general')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('name')->cannotBeEmpty()->end()
+                        ->scalarNode('disqus_shortname')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+            ->end();
+
+        $rootNode
+            ->children()
                 ->scalarNode('default_locale')
                 ->cannotBeEmpty()
                 ->defaultValue('en')
+                ->end()
+            ->end();
+
+        $rootNode
+            ->children()
+                ->scalarNode('disqus_shortname')
                 ->end()
             ->end();
 

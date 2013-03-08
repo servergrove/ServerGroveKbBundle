@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 /**
  * Article controller.
  *
- * @Route("/admin/{_locale}/articles", requirements={"_locale"="en|es|pt"})
+ * @Route("/admin/{_locale}/articles")
  */
 class ArticlesController extends Controller
 {
