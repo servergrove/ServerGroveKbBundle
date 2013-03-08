@@ -1,0 +1,7 @@
+{% javascripts
+    "@ServerGroveKbBundle/Resources/public/js/*.js"
+    "@ServerGroveKbBundle/Resources/public/js/frontend/*.js"
+    "@ServerGroveKbBundle/Resources/public/js/google-code-prettify/*.js"
+    filter="?yui_js" output="/js/compiled/frontend.js" %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}

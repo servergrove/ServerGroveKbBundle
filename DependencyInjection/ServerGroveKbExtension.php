@@ -36,7 +36,7 @@ class ServerGroveKbExtension extends Extension
         $container->setParameter('server_grove_kb.mailer.from.name', $config['mailer']['from']['name']);
         $container->setParameter('server_grove_kb.mailer.from.email', $config['mailer']['from']['email']);
 
-        $disqusShortname = isset($config['disqus_shortname']) ? $config['disqus_shortname'] : null;
-        $container->setParameter('server_grove_kb.disqus_shortname', $disqusShortname);
+        $disqusShortname = isset($config['general']['disqus_shortname']) ? $config['general']['disqus_shortname'] : null;
+        $container->setParameter('server_grove_kb.general.disqus_shortname', $disqusShortname);
     }
 }
