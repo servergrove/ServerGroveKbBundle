@@ -20,7 +20,11 @@
         {% block javascripts %}
         {% spaceless %}
         {% javascripts
-            "@ServerGroveKbBundle/Resources/public/js/*.js"
+            "@ServerGroveKbBundle/Resources/public/js/0.jquery-1.7.2.min.js"
+            "@ServerGroveKbBundle/Resources/public/js/1.angular-1.0.1.min.js"
+            "@ServerGroveKbBundle/Resources/public/js/2.bootstrap-2.0.4.min.js"
+            "@ServerGroveKbBundle/Resources/public/js/3.prettify.js"
+            "@ServerGroveKbBundle/Resources/public/js/jquery.ez-pinned-footer.js"
             "../vendor/chjj/marked/lib/marked.js"
             "../vendor/codemirror/codemirror/lib/codemirror.js"
             "../vendor/codemirror/codemirror/mode/xml/xml.js"
@@ -28,7 +32,8 @@
             "../vendor/codemirror/codemirror/mode/javascript/javascript.js"
             "../vendor/codemirror/codemirror/mode/css/css.js"
             "../vendor/codemirror/codemirror/mode/htmlmixed/htmlmixed.js"
-            "@ServerGroveKbBundle/Resources/public/js/backend/*.js"
+            "@ServerGroveKbBundle/Resources/public/js/backend/admin-angular.js"
+            "@ServerGroveKbBundle/Resources/public/js/backend/admin-load.js"
             filter="?yui_js"
             output="/js/compiled/admin.js" %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
