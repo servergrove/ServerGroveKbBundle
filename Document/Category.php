@@ -81,7 +81,7 @@ class Category
     protected $children;
 
     /**
-     * @PHPCRODM\MixedReferrers(referenceType="hard")
+     * @PHPCRODM\Referrers(referencedBy="categories", referringDocument="Article")
      * @var ArrayCollection
      */
     protected $articles;
