@@ -73,6 +73,7 @@ class ArticlesController extends Controller
         $locales       = $this->getActiveLocales($article, $this->getDocumentManager()->getLocalesFor($article));
         $localeNames   = $this->getLocaleNames($locales);
         $currentLocale = $this->getRequest()->getLocale();
+        $this->getArticleTranslation($article, $currentLocale);
 
         foreach ($locales as $locale) {
             $localeNames[$locale]['current'] = $currentLocale == $locale;
@@ -144,12 +145,8 @@ class ArticlesController extends Controller
         $activeLocales = array();
         foreach ($locales as $locale) {
             try {
-                $articleTranslation = $this->getDocumentManager()->findTranslation(
-                    'ServerGrove\KbBundle\Document\Article',
-                    $article->getId(),
-                    $locale,
-                    false
-                );
+                $articleTranslation = $this->getArticleTranslation($article, $locale);
+
                 if ($articleTranslation->getIsActive()) {
                     $activeLocales[] = $locale;
                 }
@@ -159,5 +156,17 @@ class ArticlesController extends Controller
         }
 
         return $activeLocales;
+    }
+
+    protected function getArticleTranslation(Article $article, $locale)
+    {
+        $articleTranslation = $this->getDocumentManager()->findTranslation(
+            'ServerGrove\KbBundle\Document\Article',
+            $article->getId(),
+            $locale,
+            false
+        );
+
+        return $articleTranslation;
     }
 }
