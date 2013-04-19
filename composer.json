@@ -1,5 +1,6 @@
 {
     "name": "servergrove/kb-bundle",
+    "description": "Symfony2 bundle which provides a complete Knowledge Base system based on the Symfony CMF and PHPCR projects",
     "license": "MIT",
     "authors": [
         {
