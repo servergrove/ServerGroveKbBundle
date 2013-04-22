@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCRODM;
 use Symfony\Component\Validator\Constraints as Assert;
 use ServerGrove\KbBundle\Util\Sluggable;
+use Doctrine\ODM\PHPCR\ReferenceManyCollection;
 
 /**
  * @PHPCRODM\Document(
@@ -26,6 +27,7 @@ class Article
      * @PHPCRODM\Id(strategy="repository")
      */
     protected $id;
+
 
     /**
      * @var string
@@ -279,7 +281,8 @@ class Article
      */
     public function addCategory(Category $category)
     {
-        $category->addArticle($this);
+        //$category->addArticle($this);
+
         $this->categories->add($category);
 
         return $this;
