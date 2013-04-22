@@ -176,7 +176,6 @@ class CategoriesController extends Controller
      */
     public function updateAction(Category $category)
     {
-        $original         = clone $category;
         $locales          = $this->get('service_container')->getParameter('server_grove_kb.locales');
         $dm               = $this->getDocumentManager();
         $translationForms = array();
@@ -190,7 +189,8 @@ class CategoriesController extends Controller
         }
 
         foreach ($locales as $locale) {
-            $translation = $dm->findTranslation('ServerGrove\KbBundle\Document\Category', $original->getId(), $locale);
+
+            $translation = $dm->findTranslation(null, $category->getId(), $locale);
 
             $form = $this->createForm(new CategoryType($locale), $translation, array('id_prefix' => $locale.'_'));
 

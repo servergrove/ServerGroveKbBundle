@@ -27,20 +27,35 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
         /** @var $parent \Doctrine\ODM\PHPCR\Document\Generic */
         $parent = $manager->find(null, '/categories');
 
-        $this->addCategory($manager, 'Homepage', 'Category for homepage articles', $parent, true);
-        $this->addCategory($manager, 'Category A', 'Description', $parent);
-        $this->addCategory($manager, 'Category B', 'Description', $parent);
-        $this->addCategory($manager, 'Category C', 'Description', $parent);
+        $cat1 = $this->addCategory($manager, 'Homepage', 'Category for homepage articles', $parent, true);
+        $this->addTranslation($manager, $cat1, 'es', 'Inicio', 'Categoria inicio');
+        $this->addTranslation($manager, $cat1, 'pt', 'Inicio', 'Categoria inicio');
+
+        $cat2 = $this->addCategory($manager, 'Category A', 'Description', $parent);
+        $this->addTranslation($manager, $cat2, 'es', 'Categoria A', 'Categoria A');
+        $this->addTranslation($manager, $cat2, 'pt', 'Categoria A', 'Categoria A');
+
+        $cat3 = $this->addCategory($manager, 'Category B', 'Description', $parent);
+        $this->addTranslation($manager, $cat3, 'es', 'Categoria B', 'Categoria B');
+        $this->addTranslation($manager, $cat3, 'pt', 'Categoria B', 'Categoria B');
+
+        $cat4 = $this->addCategory($manager, 'Category C', 'Description', $parent);
+        $this->addTranslation($manager, $cat4, 'es', 'Categoria C', 'Categoria AC');
+        $this->addTranslation($manager, $cat4, 'pt', 'Categoria C', 'Categoria AC');
 
         $category = $this->addCategory($manager, 'Test', 'This is the description of the test category', $parent);
-        $this->addCategory($manager, 'Child', 'Description of child category', $category);
-
-/*
-        $category = $this->addCategory($manager, 'CategoryD', 'This is the description of the test category', $parent);
-        $this->addCategory($manager, 'Child', 'Description of child category', $category);
-  */      $manager->flush();
+        $subcat1 = $this->addCategory($manager, 'Child', 'Description of child category', $category);
+        $this->addTranslation($manager, $subcat1, 'es', 'Hija', 'Categoria Hija');
+        $this->addTranslation($manager, $subcat1, 'pt', 'Hija', 'Categoria Hija');
+        /*
+              $category = $this->addCategory($manager, 'CategoryD', 'This is the description of the test category', $parent);
+              $this->addCategory($manager, 'Child', 'Description of child category', $category);
+        */      $manager->flush();
 
         $this->addTranslation($manager, $category, 'es', 'Prueba', 'Esta es la descripción de la categoría de prueba');
+        $this->addTranslation($manager, $category, 'pt', 'Prueba', 'Esta es la descripción de la categoría de prueba');
+
+        $manager->flush();
     }
 
     /**
@@ -73,7 +88,7 @@ class LoadCategoriesData implements FixtureInterface, OrderedFixtureInterface
         $category->setDescription($description);
 
         $manager->bindTranslation($category, $locale);
-        $manager->flush();
+        //$manager->flush();
     }
 
     /**
