@@ -99,7 +99,7 @@ class LoadArticlesData implements FixtureInterface, OrderedFixtureInterface
         }
 
         $manager->persist($article);
-        $manager->bindTranslation($article, 'en');
+        //$manager->bindTranslation($article, 'en');
 
         return $article;
     }

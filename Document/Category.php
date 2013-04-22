@@ -81,7 +81,7 @@ class Category
     protected $children;
 
     /**
-     * @PHPCRODM\Referrers(referencedBy="categories", referringDocument="Article")
+     * @PHPCRODM\Referrers(referencedBy="categories", referringDocument="ServerGrove\KbBundle\Document\Article")
      * @var ArrayCollection
      */
     protected $articles;
